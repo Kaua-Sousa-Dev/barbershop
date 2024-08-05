@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 8060",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 8060",
     "lint": "next lint"
   },
   "prisma": {
@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@prisma/client": "^5.17.0",
+    "@radix-ui/react-slot": "^1.1.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.424.0",
