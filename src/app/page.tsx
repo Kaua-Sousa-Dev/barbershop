@@ -1,12 +1,14 @@
-"use client"
-
-import { Button } from "./_components/ui/button";
+import Header from "./_components/header"
+import Search from "./_components/Search"
 
 export default function Home() {
   return (
     <>
-      <h1>Home Page</h1>
-      <Button>Click</Button>
+      {/* Header */}
+      <Header />
+
+      {/* Search */}
+      <Search />
     </>
-  );
+  )
 }
