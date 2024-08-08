@@ -7,10 +7,16 @@ import { Badge } from "./ui/badge"
 import { Avatar, AvatarImage } from "./ui/avatar"
 import { db } from "../_lib/prisma"
 import BarbershopItem from "./barbershopItem"
+import SearchButton from "../_constant/SearchButton"
 
 const Search = async () => {
   // chamar banco de dados
   const barbershops = await db.barbershop.findMany({})
+  const popularBarbershops = await db.barbershop.findMany({
+    orderBy: {
+      name: "desc",
+    },
+  })
   return (
     <>
       {/* Texto */}
@@ -25,6 +31,8 @@ const Search = async () => {
             <SearchIcon />
           </Button>
         </div>
+        {/* Busca Rápida*/}
+        <SearchButton />
 
         {/* Banner */}
         <div className="relative mt-6 h-[150px] w-full">
@@ -70,6 +78,15 @@ const Search = async () => {
         </h2>
         <div className="flex gap-4 overflow-auto [&::-webkit-scrollbar]:hidden">
           {barbershops.map((barbershop) => (
+            <BarbershopItem key={barbershop.id} barbershop={barbershop} />
+          ))}
+        </div>
+
+        <h2 className="mb-3 mt-5 text-xl font-bold uppercase text-gray-400">
+          Recomendados
+        </h2>
+        <div className="flex gap-4 overflow-auto [&::-webkit-scrollbar]:hidden">
+          {popularBarbershops.map((barbershop) => (
             <BarbershopItem key={barbershop.id} barbershop={barbershop} />
           ))}
         </div>
