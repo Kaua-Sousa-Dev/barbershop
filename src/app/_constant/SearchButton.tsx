@@ -5,7 +5,7 @@ interface QuickSearchOptions {
   imageURL: string
   title: string
 }
-const quichSearchOptions: QuickSearchOptions[] = [
+export const quichSearchOptions: QuickSearchOptions[] = [
   {
     imageURL: "IconCabelo.svg",
     title: "Cabelo",
