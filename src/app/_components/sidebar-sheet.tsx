@@ -94,19 +94,19 @@ const Sheetsidebar = () => {
 
         <div className="flex flex-col gap-4 border-b border-solid py-5">
           {quichSearchOptions.map((Option) => (
-            <Button
-              key={Option.title}
-              className="justify-start gap-2"
-              variant="ghost"
-            >
-              <Image
-                alt={Option.title}
-                src={Option.imageURL}
-                height={18}
-                width={18}
-              />
-              {Option.title}
-            </Button>
+            <SheetClose key={Option.title} asChild>
+              <Button className="justify-start gap-2" variant="ghost" asChild>
+                <Link href={`/barbershops?services=${Option.title}`}>
+                  <Image
+                    alt={Option.title}
+                    src={Option.imageURL}
+                    height={18}
+                    width={18}
+                  />
+                  {Option.title}
+                </Link>
+              </Button>
+            </SheetClose>
           ))}
         </div>
 

@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { Button } from "../_components/ui/button"
 import Image from "next/image"
 
@@ -38,9 +39,21 @@ const SearchButton = () => {
       {/* Busca Rápida */}
       <div className="mt-2 flex gap-3 overflow-x-scroll [&::-webkit-scrollbar]:hidden">
         {quichSearchOptions.map((Option) => (
-          <Button className="mt-3 gap-2" variant="secondary" key={Option.title}>
-            <Image src={Option.imageURL} alt="Cabelo" width={16} height={16} />
-            {Option.title}
+          <Button
+            className="mt-3 gap-2"
+            variant="secondary"
+            key={Option.title}
+            asChild
+          >
+            <Link href={`/barbershops?services=${Option.title}`}>
+              <Image
+                src={Option.imageURL}
+                alt="Cabelo"
+                width={16}
+                height={16}
+              />
+              {Option.title}
+            </Link>
           </Button>
         ))}
       </div>
