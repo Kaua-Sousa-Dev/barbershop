@@ -1,6 +1,3 @@
-import { SearchIcon } from "lucide-react"
-import { Button } from "./ui/button"
-import { Input } from "./ui/input"
 import Image from "next/image"
 import { Card, CardContent } from "./ui/card"
 import { Badge } from "./ui/badge"
@@ -8,6 +5,7 @@ import { Avatar, AvatarImage } from "./ui/avatar"
 import { db } from "../_lib/prisma"
 import BarbershopItem from "./barbershopItem"
 import SearchButton from "../_constant/SearchButton"
+import InputSearch from "./SearchInput"
 
 const Search = async () => {
   // chamar banco de dados
@@ -25,11 +23,8 @@ const Search = async () => {
         <p>Domingo, 04 de agosto</p>
 
         {/* Busca */}
-        <div className="mt-6 flex items-center gap-2">
-          <Input placeholder="Search" />
-          <Button>
-            <SearchIcon />
-          </Button>
+        <div className="mt-6">
+          <InputSearch />
         </div>
         {/* Busca Rápida*/}
         <SearchButton />

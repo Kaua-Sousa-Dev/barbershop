@@ -22,10 +22,12 @@ export default function RootLayout({
       <link rel="shortcut icon" href="IconCabelo.svg" type="image/x-icon" />
       <body className={inter.className}>
         <AuthProvider>
-          {children}
-          <Toaster />
-          <Footer />
+          <div className="flex h-full flex-col">
+            <div className="flex-1">{children}</div>
+            <Footer />
+          </div>
         </AuthProvider>
+        <Toaster />
       </body>
     </html>
   )
