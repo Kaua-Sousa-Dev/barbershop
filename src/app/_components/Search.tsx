@@ -62,11 +62,18 @@ const Search = async () => {
         </div>
 
         {/* Renderizar agendamentos */}
-        <div className="mt-4 flex gap-3 overflow-x-auto">
-          {confirmedBookings.map((booking) => (
-            <BookingItem key={booking.id} booking={booking} />
-          ))}
-        </div>
+        {confirmedBookings.length > 0 && (
+          <>
+            <h2 className="mb-3 mt-5 text-base font-bold uppercase text-gray-400">
+              Agendamentos
+            </h2>
+            <div className="mt-4 flex gap-3 overflow-x-auto [&::-webkit-scrollbar]:hidden">
+              {confirmedBookings.map((booking) => (
+                <BookingItem key={booking.id} booking={booking} />
+              ))}
+            </div>
+          </>
+        )}
 
         <h2 className="mb-3 mt-5 text-base font-bold uppercase text-gray-400">
           Recomendados
