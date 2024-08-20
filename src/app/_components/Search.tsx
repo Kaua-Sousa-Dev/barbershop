@@ -6,6 +6,8 @@ import InputSearch from "./SearchInput"
 import BookingItem from "./booking-item"
 import { getServerSession } from "next-auth"
 import { authOptions } from "../_lib/auth"
+import { format } from "date-fns"
+import { ptBR } from "date-fns/locale"
 
 // No seu componente Search:
 const Search = async () => {
@@ -43,8 +45,10 @@ const Search = async () => {
   return (
     <>
       <div className="p-5">
-        <h2 className="text-xl font-bold">Olá, ser humano</h2>
-        <p>Domingo, 04 de agosto</p>
+        <h2 className="text-xl font-bold">
+          Olá, {session?.user ? session.user.name?.split(" ")[0] : "Bem-Vindo"}
+        </h2>
+        <p>{format(new Date(), "EEEE, dd 'de' MMMM", { locale: ptBR })}</p>
 
         <div className="mt-6">
           <InputSearch />
