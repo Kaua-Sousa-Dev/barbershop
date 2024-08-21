@@ -20,7 +20,6 @@ const Search = async () => {
     },
   })
 
-  // Buscar agendamentos
   const confirmedBookings = session?.user
     ? await db.booking.findMany({
         where: {
