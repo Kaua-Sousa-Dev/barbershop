@@ -179,7 +179,7 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
 
           <div className="space-y-3">
             <h3 className="text-sm font-semibold">{service.name}</h3>
-            <p className="h-[22px] w-[260px] text-sm text-gray-400">
+            <p className="h-[22px] w-[230px] text-sm text-gray-400">
               {service.description}
             </p>
 
