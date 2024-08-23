@@ -16,7 +16,7 @@ const BookingSummary = ({
 }: BooksSummaryProps) => {
   return (
     <>
-      <Card className="w-[250px] lg:w-[300px]">
+      <Card className="lg:w-[300px]">
         <CardContent className="space-y-1 p-3">
           <div className="flex items-center justify-between">
             <h2 className="text-sm font-bold">{service.name}</h2>
