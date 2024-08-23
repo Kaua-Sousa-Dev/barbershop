@@ -207,26 +207,31 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
                   <SheetHeader>
                     <SheetTitle>Faça sua reserva</SheetTitle>
                   </SheetHeader>
-                  <div className="border-b border-solid py-5">
-                    <Calendar
-                      mode="single"
-                      locale={ptBR}
-                      className="rounded-md"
-                      selected={selectedDay}
-                      onSelect={handleDateSelect}
-                      fromDate={addDays(new Date(), 0)}
-                      styles={{
-                        head_cell: {
-                          width: "100%",
-                          textTransform: "capitalize",
-                        },
-                        cell: { width: "100%" },
-                        button: { width: "100%" },
-                        nav_button_previous: { width: "32px", height: "32px" },
-                        nav_button_next: { width: "32px", height: "32px" },
-                        caption: { textTransform: "capitalize" },
-                      }}
-                    />
+                  <div className="lg:flex lg:items-center lg:justify-center">
+                    <div className="border-b border-solid py-5 lg:ml-[-10px]">
+                      <Calendar
+                        mode="single"
+                        locale={ptBR}
+                        className="rounded-md"
+                        selected={selectedDay}
+                        onSelect={handleDateSelect}
+                        fromDate={addDays(new Date(), 0)}
+                        styles={{
+                          head_cell: {
+                            width: "100%",
+                            textTransform: "capitalize",
+                          },
+                          cell: { width: "100%" },
+                          button: { width: "100%" },
+                          nav_button_previous: {
+                            width: "32px",
+                            height: "32px",
+                          },
+                          nav_button_next: { width: "32px", height: "32px" },
+                          caption: { textTransform: "capitalize" },
+                        }}
+                      />
+                    </div>
                   </div>
 
                   {selectedDay && (
@@ -253,7 +258,7 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
                   )}
 
                   {selectedDate && (
-                    <div className="p-5">
+                    <div className="p-3">
                       <BookingSummary
                         barbershop={barbershop}
                         service={service}
@@ -266,6 +271,7 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
                       type="submit"
                       onClick={handleCreateBooking}
                       disabled={!selectedDay || !selectedTime}
+                      className="lg:w-full"
                     >
                       Confirmar
                     </Button>
